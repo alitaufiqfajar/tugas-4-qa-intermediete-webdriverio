@@ -4,15 +4,15 @@ class ProfileInstagram {
     }
 
     get followButton(){
-        return $('//*[@resouce-id="com.instagram.android:id/profile_header_follow_button"]')
+        return $('//*[@resource-id="com.instagram.android:id/profile_header_follow_button"]')
     }
 
     get unFollowButton(){
-        return $('//*[resource-id="com.instagram.android:id/follow_sheet_unfollow_row"]')
+        return $('//*[@resource-id="com.instagram.android:id/follow_sheet_unfollow_row"]')
     }
 
     get messageButton(){
-        return ('(//*[@resource-id="com.instagram.android:id/button_container" and @content-desc="Message"])')
+        return $('(//*[@resource-id="com.instagram.android:id/button_container" and @content-desc="Message"])')
     }
 
     async clickFollow(){
@@ -20,7 +20,7 @@ class ProfileInstagram {
     }
 
     async clickUnfollowButton(){
-        await this.clickUnfollowButton.click();
+        await this.unFollowButton.click();
     }
 
     async verifyUserFullName(inputFullName){
@@ -32,9 +32,14 @@ class ProfileInstagram {
         const btnTextFollow = this.followButton.getText();
         expect(btnTextFollow).toHaveValue(`Following ${inputFullName}`)
     }
+    
+    async verifySuccessUnFollow(){
+        const btnTextFollow = this.followButton.getText();
+        expect(btnTextFollow).toHaveValue(`Follow`)
+    }
 
     async clickButtonMessage(){
-        await this.clickButtonMessage.click();
+        await this.messageButton.click();
     }
 
 }

@@ -9,11 +9,11 @@ class MessageInstagram {
     }
 
     get buttonSend(){
-        return $('com.instagram.android:id/row_thread_composer_button_send');
+        return $('//*[@resource-id="com.instagram.android:id/row_thread_composer_button_send"]');
     }
 
     async backButton(){
-        await this.backButton.click();
+        await this.backNavigation.click();
     }
 
     async typeMessage(message){
@@ -21,7 +21,7 @@ class MessageInstagram {
     }
 
     async sendMessage(){
-        await this.sendMessage.click();
+        await this.buttonSend.click();
     }
 
 }

@@ -3,7 +3,7 @@ class SearchPage {
         return $('//android.widget.FrameLayout[@content-desc="Home"]/android.view.ViewGroup')
     }
     get buttonSearch(){
-        return $('//*[resource-id="com.instagram.android:id/search_tab"')
+        return $('//*[@resource-id="com.instagram.android:id/search_tab"]')
     }
 
     async clickButtonHome(){
